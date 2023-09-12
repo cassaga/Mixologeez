@@ -21,6 +21,9 @@ public class Country {
     @OneToMany(mappedBy = "country")
     private List<Cocktail> cocktails;
 
+    public Country(String countryName, String coordinates) {
+    }
+
     public Long getCountry_id() {
         return country_id;
     }
