@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/v1/country")
 public class CountryController {
 
     private final CountryRepository countryRepository;
@@ -19,22 +20,19 @@ public class CountryController {
         this.countryRepository = countryRepository;
     }
 
-    @GetMapping("/country/v1")
+    @GetMapping
     public List<Country> getAllCountries() {
         return (List<Country>) countryRepository.findAll();
     }
 
-    @GetMapping("/country/{id}")
-    public ResponseEntity<Country> getCountryById(@PathVariable Long id) {
-        Optional<Country> country = countryRepository.findById(Math.toIntExact(id));
-        if (country.isPresent()) {
-            return ResponseEntity.ok(country.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @GetMapping("/{id}")
+    public ResponseEntity<Country> getCountryById(@PathVariable Integer id) {
+        return countryRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/country")
+    @PostMapping
     public Country addCountry(@RequestBody Country country) {
         return countryRepository.save(country);
     }
