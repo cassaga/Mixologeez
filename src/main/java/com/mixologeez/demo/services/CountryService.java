@@ -1,12 +1,6 @@
 package com.mixologeez.demo.services;
 
-<<<<<<< HEAD
 import org.springframework.stereotype.Service;
-
-@Service
-public class CountryService {
-
-=======
 
 import com.mixologeez.demo.models.Country;
 import com.mixologeez.demo.repositories.CountryRepository;
@@ -46,7 +40,7 @@ public class CountryService {
     public void deleteCountry(int id) {
         countryRepository.deleteById(id);
     }
->>>>>>> main
+
 }
 
 
