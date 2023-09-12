@@ -31,7 +31,14 @@ public class CocktailService {
         return cocktailRepository.save(cocktail);
     }
 
-    public void deleteById(Integer id) {
-        cocktailRepository.deleteById(id);
+    public boolean deleteById(Integer id) {
+        Optional<Cocktail> existingCocktail = cocktailRepository.findById(id);
+
+        if (existingCocktail.isPresent()) {
+            cocktailRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
