@@ -1,2 +1,8 @@
-package com.mixologeez.demo.services;public class CocktailService {
+package com.mixologeez.demo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CocktailService {
+
 }

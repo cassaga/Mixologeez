@@ -1,2 +1,4 @@
-package com.mixologeez.demo.controller;public class CountryController {
+package com.mixologeez.demo.controller;
+
+public class CountryController {
 }
