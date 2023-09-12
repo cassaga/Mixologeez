@@ -10,74 +10,77 @@ public class Cocktail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cocktail_id;
+    @Column(name = "cocktail_id")
+    private Long cocktailId;
 
     @Column(name = "cocktail_name")
-    public String cocktail_name;
+    public String cocktailName;
 
     @Column(name = "cocktail_image")
-    public String cocktail_image;
+    public String cocktailImage;
 
     @Column(name = "cocktail_description")
-    public String cocktail_description;
+    public String cocktailDescription;
 
     @Column(name = "cocktail_instruction")
-    public String cocktail_instruction;
+    public String cocktailInstruction;
 
     @ManyToOne
-    @JoinColumn(name = "tag_1_id")
+    @JoinColumn(name = "tag_1")
     private Tag tag1;
 
     @ManyToOne
-    @JoinColumn(name = "tag_2_id")
+    @JoinColumn(name = "tag_2")
     private Tag tag2;
 
     @ManyToOne
-    @JoinColumn(name = "tag_3_id")
+    @JoinColumn(name = "tag_3")
     private Tag tag3;
 
     @ManyToOne
-    @JoinColumn(name = "country_id")
+    @JoinColumn(name = "country")
     private Country country;
 
-    public Long getCocktail_id() {
-        return cocktail_id;
+    public Cocktail() {}
+
+    public Long getCocktailId() {
+        return cocktailId;
     }
 
-    public void setCocktail_id(Long cocktail_id) {
-        this.cocktail_id = cocktail_id;
+    public void setCocktailId(Long cocktailId) {
+        this.cocktailId = cocktailId;
     }
 
-    public String getCocktail_name() {
-        return cocktail_name;
+    public String getCocktailName() {
+        return cocktailName;
     }
 
-    public void setCocktail_name(String cocktail_name) {
-        this.cocktail_name = cocktail_name;
+    public void setCocktailName(String cocktailName) {
+        this.cocktailName = cocktailName;
     }
 
-    public String getCocktail_image() {
-        return cocktail_image;
+    public String getCocktailImage() {
+        return cocktailImage;
     }
 
-    public void setCocktail_image(String cocktail_image) {
-        this.cocktail_image = cocktail_image;
+    public void setCocktailImage(String cocktailImage) {
+        this.cocktailImage = cocktailImage;
     }
 
-    public String getCocktail_description() {
-        return cocktail_description;
+    public String getCocktailDescription() {
+        return cocktailDescription;
     }
 
-    public void setCocktail_description(String cocktail_description) {
-        this.cocktail_description = cocktail_description;
+    public void setCocktailDescription(String cocktailDescription) {
+        this.cocktailDescription = cocktailDescription;
     }
 
-    public String getCocktail_instruction() {
-        return cocktail_instruction;
+    public String getCocktailInstruction() {
+        return cocktailInstruction;
     }
 
-    public void setCocktail_instruction(String cocktail_instruction) {
-        this.cocktail_instruction = cocktail_instruction;
+    public void setCocktailInstruction(String cocktailInstruction) {
+        this.cocktailInstruction = cocktailInstruction;
     }
 
     public Tag getTag1() {
@@ -115,11 +118,11 @@ public class Cocktail {
     @Override
     public String toString() {
         return "Cocktail{" +
-                "cocktail_id=" + cocktail_id +
-                ", cocktail_name='" + cocktail_name + '\'' +
-                ", cocktail_image='" + cocktail_image + '\'' +
-                ", cocktail_description='" + cocktail_description + '\'' +
-                ", cocktail_instruction='" + cocktail_instruction + '\'' +
+                "cocktailId=" + cocktailId +
+                ", cocktailName='" + cocktailName + '\'' +
+                ", cocktailImage='" + cocktailImage + '\'' +
+                ", cocktailDescription='" + cocktailDescription + '\'' +
+                ", cocktailInstruction='" + cocktailInstruction + '\'' +
                 ", tag1=" + tag1 +
                 ", tag2=" + tag2 +
                 ", tag3=" + tag3 +
@@ -127,28 +130,16 @@ public class Cocktail {
                 '}';
     }
 
-    public Cocktail() {
-    }
-
-    public Cocktail(Long cocktail_id, String cocktail_name, String cocktail_image, String cocktail_description, String cocktail_instruction, Country country) {
-        this.cocktail_id = cocktail_id;
-        this.cocktail_name = cocktail_name;
-        this.cocktail_image = cocktail_image;
-        this.cocktail_description = cocktail_description;
-        this.cocktail_instruction = cocktail_instruction;
-        this.country = country;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cocktail cocktail = (Cocktail) o;
-        return Objects.equals(cocktail_id, cocktail.cocktail_id);
+        return Objects.equals(cocktailId, cocktail.cocktailId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cocktail_id);
+        return Objects.hash(cocktailId);
     }
 }
