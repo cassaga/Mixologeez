@@ -4,9 +4,10 @@ import com.mixologeez.demo.DTO.CocktailDTO;
 import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.repositories.CocktailRepository;
 
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class CocktailService {
         this.cocktailRepository = cocktailRepository;
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<CocktailDTO> findAll() {
       List<Cocktail> cocktails = (List<Cocktail>) cocktailRepository.findAll();
       List <CocktailDTO> cocktailDTOs  = new ArrayList<>();
@@ -33,10 +34,14 @@ public class CocktailService {
       return  cocktailDTOs;
     }
 
-    public Optional<CocktailDTO> findById(Integer id) {
-        Optional<Cocktail> cocktailOptional = cocktailRepository.findById(id);
-
-        return cocktailOptional.map(CocktailDTO::new);
+    @Transactional(readOnly = true)
+    public CocktailDTO findById(Integer id) {
+        Cocktail cocktail = cocktailRepository.findByCocktailId(id);
+        if(null== cocktail){
+            return null;
+        } else {
+            return new CocktailDTO(cocktail);
+        }
     }
 
     public Cocktail save(Cocktail cocktail) {

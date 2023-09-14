@@ -11,7 +11,7 @@ public class Cocktail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cocktail_id")
-    private Long cocktailId;
+    private int cocktailId;
 
     @Column(name = "cocktail_name")
     public String cocktailName;
@@ -25,29 +25,29 @@ public class Cocktail {
     @Column(name = "cocktail_instruction")
     public String cocktailInstruction;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_1")
     private Tag tag1;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_2")
     private Tag tag2;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tag_3")
     private Tag tag3;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country")
     private Country country;
 
     public Cocktail() {}
 
-    public Long getCocktailId() {
+    public int getCocktailId() {
         return cocktailId;
     }
 
-    public void setCocktailId(Long cocktailId) {
+    public void setCocktailId(int cocktailId) {
         this.cocktailId = cocktailId;
     }
 

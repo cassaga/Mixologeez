@@ -12,27 +12,18 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tag_id")
-    private Long tagId;
+    private int tagId;
 
     @Column(name = "tag_name")
     private String tagName;
 
-    @OneToMany(mappedBy = "tag1")
-    private List<Cocktail> cocktails1;
-
-    @OneToMany(mappedBy = "tag2")
-    private List<Cocktail> cocktails2;
-
-    @OneToMany(mappedBy = "tag3")
-    private List<Cocktail> cocktails3;
-
     public Tag() {}
 
-    public Long getTagId() {
+    public int getTagId() {
         return tagId;
     }
 
-    public void setTagId(Long tagId) {
+    public void setTagId(int tagId) {
         this.tagId = tagId;
     }
 
@@ -44,38 +35,11 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public List<Cocktail> getCocktails1() {
-        return cocktails1;
-    }
-
-    public void setCocktails1(List<Cocktail> cocktails1) {
-        this.cocktails1 = cocktails1;
-    }
-
-    public List<Cocktail> getCocktails2() {
-        return cocktails2;
-    }
-
-    public void setCocktails2(List<Cocktail> cocktails2) {
-        this.cocktails2 = cocktails2;
-    }
-
-    public List<Cocktail> getCocktails3() {
-        return cocktails3;
-    }
-
-    public void setCocktails3(List<Cocktail> cocktails3) {
-        this.cocktails3 = cocktails3;
-    }
-
     @Override
     public String toString() {
         return "Tag{" +
                 "tagId=" + tagId +
                 ", tagName='" + tagName + '\'' +
-                ", cocktails1=" + cocktails1 +
-                ", cocktails2=" + cocktails2 +
-                ", cocktails3=" + cocktails3 +
                 '}';
     }
 

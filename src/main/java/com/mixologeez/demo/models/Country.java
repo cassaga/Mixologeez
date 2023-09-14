@@ -12,7 +12,7 @@ public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
-    private Long countryId;
+    private int countryId;
 
     @Column(name = "country_name")
     public String countryName;
@@ -20,14 +20,11 @@ public class Country {
     @Column(name = "country_coordinates")
     public String countryCoordinate;
 
-    @OneToMany(mappedBy = "country")
-    private List<Cocktail> cocktails;
-
-    public Long getCountryId() {
+    public int getCountryId() {
         return countryId;
     }
 
-    public void setCountryId(Long countryId) {
+    public void setCountryId(int countryId) {
         this.countryId = countryId;
     }
 
@@ -45,14 +42,6 @@ public class Country {
 
     public void setCountryCoordinate(String countryCoordinate) {
         this.countryCoordinate = countryCoordinate;
-    }
-
-    public List<Cocktail> getCocktails() {
-        return cocktails;
-    }
-
-    public void setCocktails(List<Cocktail> cocktails) {
-        this.cocktails = cocktails;
     }
 
     @Override
@@ -74,7 +63,6 @@ public class Country {
                 "countryId=" + countryId +
                 ", countryName='" + countryName + '\'' +
                 ", countryCoordinate='" + countryCoordinate + '\'' +
-                ", cocktails=" + cocktails +
                 '}';
     }
 

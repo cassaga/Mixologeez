@@ -4,7 +4,7 @@ package com.mixologeez.demo.DTO;
 import com.mixologeez.demo.models.Cocktail;
 
 public class CocktailDTO {
-    private  Long id ;
+    private  int id ;
     private  String cocktailName;
     private String cocktailImage;
     private String cocktailDescription;
@@ -27,11 +27,11 @@ public class CocktailDTO {
         this.country = cocktail.getCountry().getCountryName();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
