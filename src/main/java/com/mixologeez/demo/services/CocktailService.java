@@ -4,9 +4,9 @@ import com.mixologeez.demo.DTO.CocktailDTO;
 import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.repositories.CocktailRepository;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +33,10 @@ public class CocktailService {
       return  cocktailDTOs;
     }
 
-    public Optional<Cocktail> findById(Integer id) {
-        return cocktailRepository.findById(id);
+    public Optional<CocktailDTO> findById(Integer id) {
+        Optional<Cocktail> cocktailOptional = cocktailRepository.findById(id);
+
+        return cocktailOptional.map(CocktailDTO::new);
     }
 
     public Cocktail save(Cocktail cocktail) {
