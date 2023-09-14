@@ -15,7 +15,7 @@ public class Tag {
     private Long tagId;
 
     @Column(name = "tag_name")
-    public String tagName;
+    private String tagName;
 
     @OneToMany(mappedBy = "tag1")
     private List<Cocktail> cocktails1;

@@ -1,11 +1,14 @@
 package com.mixologeez.demo.services;
 
+import com.mixologeez.demo.DTO.CocktailDTO;
 import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.repositories.CocktailRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -18,8 +21,16 @@ public class CocktailService {
         this.cocktailRepository = cocktailRepository;
     }
 
-    public List<Cocktail> findAll() {
-        return (List<Cocktail>) cocktailRepository.findAll();
+    @Transactional
+    public List<CocktailDTO> findAll() {
+      List<Cocktail> cocktails = (List<Cocktail>) cocktailRepository.findAll();
+      List <CocktailDTO> cocktailDTOs  = new ArrayList<>();
+
+      for (Cocktail cocktail : cocktails){
+          CocktailDTO cocktailDTO = new CocktailDTO(cocktail);
+          cocktailDTOs.add(cocktailDTO);
+      }
+      return  cocktailDTOs;
     }
 
     public Optional<Cocktail> findById(Integer id) {

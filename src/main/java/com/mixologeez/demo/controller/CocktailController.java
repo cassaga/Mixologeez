@@ -1,5 +1,6 @@
 package com.mixologeez.demo.controller;
 
+import com.mixologeez.demo.DTO.CocktailDTO;
 import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.services.CocktailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CocktailController {
     }
 
     @GetMapping
-    public List<Cocktail> getAllCocktail() {
+    public List<CocktailDTO> getAllCocktail() {
         return cocktailService.findAll();
     }
 
