@@ -34,9 +34,8 @@ public class CocktailService {
     }
 
     public Optional<CocktailDTO> findById(Integer id) {
-        Optional<Cocktail> cocktailOptional = cocktailRepository.findById(id);
-
-        return cocktailOptional.map(CocktailDTO::new);
+        Optional<Cocktail> cocktailOptional= cocktailRepository.findById(id);
+        return  cocktailOptional.map(CocktailDTO::new);
     }
 
     public Cocktail save(Cocktail cocktail) {
