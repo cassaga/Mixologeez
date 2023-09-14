@@ -27,9 +27,12 @@ public class CocktailController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CocktailDTO> getCocktailById(@PathVariable Integer id) {
-        return cocktailService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        CocktailDTO cocktailDTO = cocktailService.findById(id);
+        if (null == cocktailDTO) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(cocktailDTO);
+        }
     }
 
     @PostMapping
