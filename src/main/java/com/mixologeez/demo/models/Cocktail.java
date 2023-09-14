@@ -16,25 +16,25 @@ public class Cocktail {
     @Column(name = "cocktail_name")
     public String cocktailName;
 
-    @Column(name = "cocktail_image")
+    @Column(name = "cocktail_image", nullable = true)
     public String cocktailImage;
 
-    @Column(name = "cocktail_description")
+    @Column(name = "cocktail_description", nullable = true)
     public String cocktailDescription;
 
     @Column(name = "cocktail_instruction")
     public String cocktailInstruction;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tag_1")
+    @JoinColumn(name = "tag_1", nullable = true)
     private Tag tag1;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tag_2")
+    @JoinColumn(name = "tag_2", nullable = true)
     private Tag tag2;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tag_3")
+    @JoinColumn(name = "tag_3", nullable = true)
     private Tag tag3;
 
     @ManyToOne(fetch = FetchType.LAZY)
