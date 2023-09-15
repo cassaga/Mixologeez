@@ -36,8 +36,13 @@ public class CocktailController {
     }
 
     @PostMapping
-    public Cocktail addCocktail(@RequestBody Cocktail cocktail) {
-        return cocktailService.save(cocktail);
+    public ResponseEntity<?> addCocktail(@RequestBody Cocktail cocktail) {
+        CocktailDTO cocktailDTO = cocktailService.save(cocktail);
+        if (null == cocktailDTO) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            return ResponseEntity.ok(cocktailDTO);
+        }
     }
 
     @DeleteMapping("/{id}")
