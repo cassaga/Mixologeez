@@ -20,4 +20,19 @@
       transform: scale(1.06);
     }
   }
+  &__title{
+    margin-top: 16px;
+    margin-bottom: 20px;
+  }
+  &__tagWrapper{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__tag{
+    border: 1px solid cornflowerblue;
+    padding: 3px 10px;
+    border-radius: 15px;
+    user-select: none;
+    font-size: 12px;
+  }
 }

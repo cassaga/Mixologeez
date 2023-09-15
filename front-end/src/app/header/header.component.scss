@@ -1,10 +1,13 @@
-header{
+header {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   height: 90px;
   background: cornflowerblue;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
+  box-sizing: border-box;
 }
 
 h1 {
