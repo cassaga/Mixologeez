@@ -18,8 +18,8 @@ public class CocktailDTO {
     public CocktailDTO (Cocktail cocktail) {
         this.id = cocktail.getCocktailId();
         this.cocktailName = cocktail.getCocktailName();
-        this.cocktailImage = cocktail.getCocktailImage() != null ? cocktail.getCocktailImage() : null;
-        this.cocktailDescription = cocktail.getCocktailDescription() != null ? cocktail.getCocktailDescription() : null;
+        this.cocktailImage = cocktail.getCocktailImage();
+        this.cocktailDescription = cocktail.getCocktailDescription();
         this.cocktailInstructions = cocktail.getCocktailInstruction();
         this.tag1 = cocktail.getTag1() != null ? cocktail.getTag1().getTagName() : null;
         this.tag2 = cocktail.getTag2() != null ? cocktail.getTag2().getTagName() : null;

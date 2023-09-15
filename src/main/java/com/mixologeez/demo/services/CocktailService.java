@@ -5,7 +5,6 @@ import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.repositories.CocktailRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,8 +43,9 @@ public class CocktailService {
         }
     }
 
-    public Cocktail save(Cocktail cocktail) {
-        return cocktailRepository.save(cocktail);
+    public CocktailDTO save(Cocktail cocktail) {
+        Cocktail savedCocktail = cocktailRepository.save(cocktail);
+        return new CocktailDTO(savedCocktail);
     }
 
     public boolean deleteById(Integer id) {
