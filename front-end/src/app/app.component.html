@@ -1,12 +1,14 @@
+<app-header>></app-header>
 <section class="cocktailContainer" >
+
   <div *ngFor="let cocktail of data">
-    <app-cocktail-card
       [cocktailImage]="cocktail.cocktailImage"
+    <app-cocktail-card
       [cocktailName]="cocktail.cocktailName"
       [cocktailTag1]="cocktail.tag1"
       [cocktailTag2]="cocktail.tag2"
       [cocktailTag3]="cocktail.tag3"
     >
-    </app-cocktail-card>
   </div>
+    </app-cocktail-card>
 </section>
