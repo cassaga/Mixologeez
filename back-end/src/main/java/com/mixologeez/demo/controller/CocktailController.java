@@ -1,6 +1,7 @@
 package com.mixologeez.demo.controller;
 
 import com.mixologeez.demo.DTO.CocktailDTO;
+import com.mixologeez.demo.DTO.CocktailPostDTO;
 import com.mixologeez.demo.models.Cocktail;
 import com.mixologeez.demo.services.CocktailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +37,9 @@ public class CocktailController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addCocktail(@RequestBody Cocktail cocktail) {
-        CocktailDTO cocktailDTO = cocktailService.save(cocktail);
-        if (null == cocktailDTO) {
-            return ResponseEntity.badRequest().build();
-        } else {
-            return ResponseEntity.ok(cocktailDTO);
-        }
+    public ResponseEntity<?> addCocktail(@RequestBody CocktailPostDTO cocktailPostDTO) {
+        cocktailService.save(cocktailPostDTO);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
@@ -54,5 +51,11 @@ public class CocktailController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateCocktailById(@PathVariable Integer id,@RequestBody CocktailPostDTO cocktailPostDTO ) {
+        cocktailService.updateById(id, cocktailPostDTO);
+        return ResponseEntity.ok().build();
     }
 }

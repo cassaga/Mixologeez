@@ -4,34 +4,35 @@ package com.mixologeez.demo.DTO;
 import com.mixologeez.demo.models.Cocktail;
 
 public class CocktailDTO {
-    private  int id ;
+    private  Integer id;
     private  String cocktailName;
     private String cocktailImage;
     private String cocktailDescription;
-    private  String cocktailInstructions;
+    private  String cocktailInstruction;
     private String tag1;
     private String tag2;
     private String tag3;
     private  String country;
 
+    public CocktailDTO() {}
 
     public CocktailDTO (Cocktail cocktail) {
         this.id = cocktail.getCocktailId();
         this.cocktailName = cocktail.getCocktailName();
         this.cocktailImage = cocktail.getCocktailImage();
         this.cocktailDescription = cocktail.getCocktailDescription();
-        this.cocktailInstructions = cocktail.getCocktailInstruction();
+        this.cocktailInstruction = cocktail.getCocktailInstruction();
         this.tag1 = cocktail.getTag1() != null ? cocktail.getTag1().getTagName() : null;
         this.tag2 = cocktail.getTag2() != null ? cocktail.getTag2().getTagName() : null;
         this.tag3 = cocktail.getTag3() != null ? cocktail.getTag3().getTagName() : null;
         this.country = cocktail.getCountry().getCountryName();
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,11 +61,11 @@ public class CocktailDTO {
     }
 
     public String getCocktailInstructions() {
-        return cocktailInstructions;
+        return cocktailInstruction;
     }
 
     public void setCocktailInstructions(String cocktailInstructions) {
-        this.cocktailInstructions = cocktailInstructions;
+        this.cocktailInstruction = cocktailInstructions;
     }
 
     public String getTag1() {
@@ -106,7 +107,7 @@ public class CocktailDTO {
                 ", cocktailName='" + cocktailName + '\'' +
                 ", cocktailImage='" + cocktailImage + '\'' +
                 ", cocktailDescription='" + cocktailDescription + '\'' +
-                ", cocktailInstructions='" + cocktailInstructions + '\'' +
+                ", cocktailInstructions='" + cocktailInstruction + '\'' +
                 ", tag1='" + tag1 + '\'' +
                 ", tag2='" + tag2 + '\'' +
                 ", tag3='" + tag3 + '\'' +
