@@ -1,0 +1,9 @@
+<div class="cocktail">
+  <div class="cocktail__imageWrapper"><img class="cocktail__image" [src]="cocktailImage" [alt]="cocktailName"></div>
+  <h3 class="cocktail__title">{{cocktailName}}</h3>
+  <div class="cocktail__tagWrapper">
+    <p class="cocktail__tag" *ngIf="cocktailTag1">{{cocktailTag1}}</p>
+    <p class="cocktail__tag" *ngIf="cocktailTag2">{{cocktailTag2}}</p>
+    <p class="cocktail__tag" *ngIf="cocktailTag3">{{cocktailTag3}}</p>
+  </div>
+</div>
